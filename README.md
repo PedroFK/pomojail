@@ -9,6 +9,7 @@ Fork of [AppJail](https://github.com/devsemih/appjail) by Semih Aslan.
 - **Menu bar countdown with a quick dropdown**: start, pause, skip and reset, durations, auto-start and strict mode, all without opening a window.
 - **Pomodoro cycle**: focus, short break, and a long break after N focus sessions. Pick a preset or type any value.
 - **Auto-start**: breaks and focus sessions can start on their own when the previous phase ends.
+- **End sounds**: "Glass" when a focus session ends, "Hero" when a break ends.
 - **Blocking only while focusing**: blocked apps are quit and tabs whose domain matches a keyword are closed. When a focus session starts, blocked apps and tabs that are already open are closed too.
 - **Strict mode**: while focusing there is no pause, skip, reset or quit, and blocked items can't be removed.
 - **Website categories and schedules** from AppJail still work.

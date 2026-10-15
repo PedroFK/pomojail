@@ -18,6 +18,13 @@ enum PomodoroPhase: String, Codable {
         case .longBreak: "sofa.fill"
         }
     }
+
+    var endSoundName: String {
+        switch self {
+        case .focus: "Glass"
+        case .shortBreak, .longBreak: "Hero"
+        }
+    }
 }
 
 enum PomodoroStatus: String, Codable {

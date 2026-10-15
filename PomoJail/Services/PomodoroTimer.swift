@@ -142,7 +142,7 @@ class PomodoroTimer: ObservableObject {
     }
 
     private func announceEnd(of finishedPhase: PomodoroPhase) {
-        NSSound(named: "Glass")?.play()
+        NSSound(named: finishedPhase.endSoundName)?.play()
 
         let nextPhase = state.phase
         let minutes = settings.minutes(of: nextPhase)

@@ -1,4 +1,4 @@
-import Foundation
+import AppKit
 import Testing
 @testable import PomoJail
 
@@ -46,6 +46,14 @@ struct PomodoroStateTests {
         #expect(remainingWhilePaused == 20 * 60)
         #expect(state.remainingSeconds(settings: settings, now: start.addingTimeInterval(60 * 60)) == 20 * 60)
         #expect(state.isFocusRunning)
+    }
+
+    @Test func focusAndBreaksEndWithDifferentSystemSounds() {
+        let soundNames = [PomodoroPhase.focus, .shortBreak, .longBreak].map(\.endSoundName)
+
+        #expect(soundNames.allSatisfy { NSSound(named: $0) != nil })
+        #expect(soundNames[0] != soundNames[1])
+        #expect(soundNames[1] == soundNames[2])
     }
 }
 
