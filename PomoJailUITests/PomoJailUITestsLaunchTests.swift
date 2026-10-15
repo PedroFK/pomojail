@@ -1,13 +1,13 @@
 //
-//  appjailUITestsLaunchTests.swift
-//  appjailUITests
+//  PomoJailUITestsLaunchTests.swift
+//  PomoJailUITests
 //
 //  Created by Semih Aslan on 14.02.2026.
 //
 
 import XCTest
 
-final class appjailUITestsLaunchTests: XCTestCase {
+final class PomoJailUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

@@ -12,37 +12,37 @@
 			containerPortal = D690BDB32F3FD0B8005A08D1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D690BDBA2F3FD0B8005A08D1;
-			remoteInfo = appjail;
+			remoteInfo = PomoJail;
 		};
 		D690BDD32F3FD0B9005A08D1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D690BDB32F3FD0B8005A08D1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D690BDBA2F3FD0B8005A08D1;
-			remoteInfo = appjail;
+			remoteInfo = PomoJail;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D690BDBB2F3FD0B8005A08D1 /* appjail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appjail.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D690BDC82F3FD0B9005A08D1 /* appjailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = appjailTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D690BDD22F3FD0B9005A08D1 /* appjailUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = appjailUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D690BDBB2F3FD0B8005A08D1 /* PomoJail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomoJail.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D690BDC82F3FD0B9005A08D1 /* PomoJailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomoJailTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D690BDD22F3FD0B9005A08D1 /* PomoJailUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomoJailUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D690BDBD2F3FD0B8005A08D1 /* appjail */ = {
+		D690BDBD2F3FD0B8005A08D1 /* PomoJail */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = appjail;
+			path = PomoJail;
 			sourceTree = "<group>";
 		};
-		D690BDCB2F3FD0B9005A08D1 /* appjailTests */ = {
+		D690BDCB2F3FD0B9005A08D1 /* PomoJailTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = appjailTests;
+			path = PomoJailTests;
 			sourceTree = "<group>";
 		};
-		D690BDD52F3FD0B9005A08D1 /* appjailUITests */ = {
+		D690BDD52F3FD0B9005A08D1 /* PomoJailUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = appjailUITests;
+			path = PomoJailUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,9 +75,9 @@
 		D690BDB22F3FD0B8005A08D1 = {
 			isa = PBXGroup;
 			children = (
-				D690BDBD2F3FD0B8005A08D1 /* appjail */,
-				D690BDCB2F3FD0B9005A08D1 /* appjailTests */,
-				D690BDD52F3FD0B9005A08D1 /* appjailUITests */,
+				D690BDBD2F3FD0B8005A08D1 /* PomoJail */,
+				D690BDCB2F3FD0B9005A08D1 /* PomoJailTests */,
+				D690BDD52F3FD0B9005A08D1 /* PomoJailUITests */,
 				D690BDBC2F3FD0B8005A08D1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,9 +85,9 @@
 		D690BDBC2F3FD0B8005A08D1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D690BDBB2F3FD0B8005A08D1 /* appjail.app */,
-				D690BDC82F3FD0B9005A08D1 /* appjailTests.xctest */,
-				D690BDD22F3FD0B9005A08D1 /* appjailUITests.xctest */,
+				D690BDBB2F3FD0B8005A08D1 /* PomoJail.app */,
+				D690BDC82F3FD0B9005A08D1 /* PomoJailTests.xctest */,
+				D690BDD22F3FD0B9005A08D1 /* PomoJailUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D690BDBA2F3FD0B8005A08D1 /* appjail */ = {
+		D690BDBA2F3FD0B8005A08D1 /* PomoJail */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D690BDDC2F3FD0B9005A08D1 /* Build configuration list for PBXNativeTarget "appjail" */;
+			buildConfigurationList = D690BDDC2F3FD0B9005A08D1 /* Build configuration list for PBXNativeTarget "PomoJail" */;
 			buildPhases = (
 				D690BDB72F3FD0B8005A08D1 /* Sources */,
 				D690BDB82F3FD0B8005A08D1 /* Frameworks */,
@@ -108,18 +108,18 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				D690BDBD2F3FD0B8005A08D1 /* appjail */,
+				D690BDBD2F3FD0B8005A08D1 /* PomoJail */,
 			);
-			name = appjail;
+			name = PomoJail;
 			packageProductDependencies = (
 			);
-			productName = appjail;
-			productReference = D690BDBB2F3FD0B8005A08D1 /* appjail.app */;
+			productName = PomoJail;
+			productReference = D690BDBB2F3FD0B8005A08D1 /* PomoJail.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D690BDC72F3FD0B9005A08D1 /* appjailTests */ = {
+		D690BDC72F3FD0B9005A08D1 /* PomoJailTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D690BDDF2F3FD0B9005A08D1 /* Build configuration list for PBXNativeTarget "appjailTests" */;
+			buildConfigurationList = D690BDDF2F3FD0B9005A08D1 /* Build configuration list for PBXNativeTarget "PomoJailTests" */;
 			buildPhases = (
 				D690BDC42F3FD0B9005A08D1 /* Sources */,
 				D690BDC52F3FD0B9005A08D1 /* Frameworks */,
@@ -131,18 +131,18 @@
 				D690BDCA2F3FD0B9005A08D1 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				D690BDCB2F3FD0B9005A08D1 /* appjailTests */,
+				D690BDCB2F3FD0B9005A08D1 /* PomoJailTests */,
 			);
-			name = appjailTests;
+			name = PomoJailTests;
 			packageProductDependencies = (
 			);
-			productName = appjailTests;
-			productReference = D690BDC82F3FD0B9005A08D1 /* appjailTests.xctest */;
+			productName = PomoJailTests;
+			productReference = D690BDC82F3FD0B9005A08D1 /* PomoJailTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D690BDD12F3FD0B9005A08D1 /* appjailUITests */ = {
+		D690BDD12F3FD0B9005A08D1 /* PomoJailUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D690BDE22F3FD0B9005A08D1 /* Build configuration list for PBXNativeTarget "appjailUITests" */;
+			buildConfigurationList = D690BDE22F3FD0B9005A08D1 /* Build configuration list for PBXNativeTarget "PomoJailUITests" */;
 			buildPhases = (
 				D690BDCE2F3FD0B9005A08D1 /* Sources */,
 				D690BDCF2F3FD0B9005A08D1 /* Frameworks */,
@@ -154,13 +154,13 @@
 				D690BDD42F3FD0B9005A08D1 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				D690BDD52F3FD0B9005A08D1 /* appjailUITests */,
+				D690BDD52F3FD0B9005A08D1 /* PomoJailUITests */,
 			);
-			name = appjailUITests;
+			name = PomoJailUITests;
 			packageProductDependencies = (
 			);
-			productName = appjailUITests;
-			productReference = D690BDD22F3FD0B9005A08D1 /* appjailUITests.xctest */;
+			productName = PomoJailUITests;
+			productReference = D690BDD22F3FD0B9005A08D1 /* PomoJailUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -186,7 +186,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D690BDB62F3FD0B8005A08D1 /* Build configuration list for PBXProject "appjail" */;
+			buildConfigurationList = D690BDB62F3FD0B8005A08D1 /* Build configuration list for PBXProject "PomoJail" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -200,9 +200,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D690BDBA2F3FD0B8005A08D1 /* appjail */,
-				D690BDC72F3FD0B9005A08D1 /* appjailTests */,
-				D690BDD12F3FD0B9005A08D1 /* appjailUITests */,
+				D690BDBA2F3FD0B8005A08D1 /* PomoJail */,
+				D690BDC72F3FD0B9005A08D1 /* PomoJailTests */,
+				D690BDD12F3FD0B9005A08D1 /* PomoJailUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,12 +258,12 @@
 /* Begin PBXTargetDependency section */
 		D690BDCA2F3FD0B9005A08D1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D690BDBA2F3FD0B8005A08D1 /* appjail */;
+			target = D690BDBA2F3FD0B8005A08D1 /* PomoJail */;
 			targetProxy = D690BDC92F3FD0B9005A08D1 /* PBXContainerItemProxy */;
 		};
 		D690BDD42F3FD0B9005A08D1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D690BDBA2F3FD0B8005A08D1 /* appjail */;
+			target = D690BDBA2F3FD0B8005A08D1 /* PomoJail */;
 			targetProxy = D690BDD32F3FD0B9005A08D1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -392,26 +392,26 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = appjail/appjail.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = PomoJail/PomoJail.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UP7GT9LZLZ;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = AppJail;
+				INFOPLIST_KEY_CFBundleDisplayName = PomoJail;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
-				INFOPLIST_KEY_NSAppleEventsUsageDescription = "AppJail needs automation access to monitor and manage browser tabs.";
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "PomoJail needs automation access to monitor and manage browser tabs.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.appjail;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pedrofk.pomojail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -428,26 +428,26 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = appjail/appjail.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = PomoJail/PomoJail.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UP7GT9LZLZ;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = AppJail;
+				INFOPLIST_KEY_CFBundleDisplayName = PomoJail;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
-				INFOPLIST_KEY_NSAppleEventsUsageDescription = "AppJail needs automation access to monitor and manage browser tabs.";
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "PomoJail needs automation access to monitor and manage browser tabs.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.appjail;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pedrofk.pomojail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -463,19 +463,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.appjailTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pedrofk.pomojail.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/appjail.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/appjail";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PomoJail.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PomoJail";
 			};
 			name = Debug;
 		};
@@ -483,62 +484,65 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.appjailTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pedrofk.pomojail.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/appjail.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/appjail";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PomoJail.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PomoJail";
 			};
 			name = Release;
 		};
 		D690BDE32F3FD0B9005A08D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.appjailUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pedrofk.pomojail.uitests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = appjail;
+				TEST_TARGET_NAME = PomoJail;
 			};
 			name = Debug;
 		};
 		D690BDE42F3FD0B9005A08D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.appjailUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pedrofk.pomojail.uitests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = appjail;
+				TEST_TARGET_NAME = PomoJail;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D690BDB62F3FD0B8005A08D1 /* Build configuration list for PBXProject "appjail" */ = {
+		D690BDB62F3FD0B8005A08D1 /* Build configuration list for PBXProject "PomoJail" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D690BDDA2F3FD0B9005A08D1 /* Debug */,
@@ -547,7 +551,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D690BDDC2F3FD0B9005A08D1 /* Build configuration list for PBXNativeTarget "appjail" */ = {
+		D690BDDC2F3FD0B9005A08D1 /* Build configuration list for PBXNativeTarget "PomoJail" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D690BDDD2F3FD0B9005A08D1 /* Debug */,
@@ -556,7 +560,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D690BDDF2F3FD0B9005A08D1 /* Build configuration list for PBXNativeTarget "appjailTests" */ = {
+		D690BDDF2F3FD0B9005A08D1 /* Build configuration list for PBXNativeTarget "PomoJailTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D690BDE02F3FD0B9005A08D1 /* Debug */,
@@ -565,7 +569,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D690BDE22F3FD0B9005A08D1 /* Build configuration list for PBXNativeTarget "appjailUITests" */ = {
+		D690BDE22F3FD0B9005A08D1 /* Build configuration list for PBXNativeTarget "PomoJailUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D690BDE32F3FD0B9005A08D1 /* Debug */,

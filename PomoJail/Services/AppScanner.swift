@@ -4,7 +4,7 @@ enum AppScanner {
     static func scanInstalledApps() -> [AppInfo] {
         let directories = ["/Applications", "/System/Applications"]
         let fileManager = FileManager.default
-        let ownBundleID = Bundle.main.bundleIdentifier ?? "com.appjail"
+        let ownBundleID = Bundle.main.bundleIdentifier ?? "com.pedrofk.pomojail"
 
         var apps: [AppInfo] = []
         var seenBundleIDs = Set<String>()

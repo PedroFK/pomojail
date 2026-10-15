@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct appjailApp: App {
+struct PomoJailApp: App {
     @StateObject private var blockList: BlockList
     @StateObject private var permissionsManager: PermissionsManager
     @StateObject private var engine: MonitoringEngine
