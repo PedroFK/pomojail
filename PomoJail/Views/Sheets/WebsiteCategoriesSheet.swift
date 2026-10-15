@@ -2,6 +2,7 @@ import SwiftUI
 
 struct WebsiteCategoriesSheet: View {
     @ObservedObject var blockList: BlockList
+    var isLocked = false
     var onDismiss: () -> Void
     @State private var expandedCategory: String?
 
@@ -54,6 +55,7 @@ struct WebsiteCategoriesSheet: View {
                                     .toggleStyle(.switch)
                                     .labelsHidden()
                                     .controlSize(.small)
+                                    .disabled(isLocked && blockList.enabledCategoryIDs.contains(category.id))
                                 }
 
                                 if expandedCategory == category.id {

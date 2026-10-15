@@ -9,7 +9,7 @@ struct OnboardingView: View {
                 .font(.largeTitle)
                 .foregroundStyle(.tint)
 
-            Text("AppJail Setup")
+            Text("PomoJail Setup")
                 .font(.headline)
 
             Text("Grant permissions to enable app blocking.")

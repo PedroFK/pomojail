@@ -1,116 +1,42 @@
-# AppJail — Block Distracting Apps & Browser Tabs on macOS
+# PomoJail
 
-A free, open-source macOS menu bar app that blocks distracting applications and browser tabs to help you stay focused. Focus timer, scheduled blocking, website categories, and more — no browser extensions required.
+A Pomodoro timer for the macOS menu bar that blocks distracting apps and browser tabs while you focus.
 
-AppJail sits in your menu bar and enforces focus by terminating blocked applications and closing browser tabs that match URL keywords — all powered by native macOS APIs.
-
-[![Build & Release](https://github.com/devsemih/appjail/actions/workflows/build.yml/badge.svg)](https://github.com/devsemih/appjail/actions/workflows/build.yml)
-![macOS](https://img.shields.io/badge/macOS-15.0%2B-black?logo=apple)
-![Swift](https://img.shields.io/badge/Swift-6-orange?logo=swift)
-![License](https://img.shields.io/badge/License-MIT-blue)
-![Privacy](https://img.shields.io/badge/Privacy-No_Telemetry-green)
-
-<p align="center">
-  <img src="screenshots/apps-tab.png" width="280" alt="AppJail Dashboard — card-based interface with quick access to apps, websites, and categories">
-  &nbsp;
-  <img src="screenshots/browsers-tab.png" width="280" alt="AppJail Websites — block browser tabs by URL keyword">
-  &nbsp;
-  <img src="screenshots/categories.png" width="280" alt="AppJail Categories — block entire categories like Social Media, Shopping, News">
-</p>
-<p align="center">
-  <img src="screenshots/focus-timer.png" width="280" alt="AppJail Focus Timer — timed focus sessions with strict mode">
-  &nbsp;
-  <img src="screenshots/schedules.png" width="280" alt="AppJail Schedules — recurring block schedules by day and time">
-</p>
+Fork of [AppJail](https://github.com/devsemih/appjail) by Semih Aslan.
 
 ## Features
 
-- **Block Apps** — Select any installed application to block. When activated, the app is immediately terminated.
-- **Block Browser Tabs** — Add URL keywords (e.g. `youtube`, `reddit`, `twitter`). Matching tabs are closed automatically — no browser extension needed.
-- **Website Categories** — Block entire categories of sites (Social Media, Shopping, News, Entertainment, Gaming) with one tap instead of adding keywords one by one.
-- **Focus Timer** — Start timed focus sessions (25, 45, 60, or 90 minutes) that automatically enable blocking. Strict mode prevents you from stopping early.
-- **Scheduled Blocking** — Set up recurring block schedules by day of week and time range. Blocking activates and deactivates automatically.
-- **Redesigned Dashboard** — A unified card-based interface replaces the old tab layout. Quick-access cards show blocked app, website, and category counts at a glance.
-- **Menu Bar Only** — Runs entirely from the menu bar with no dock icon. Minimal, distraction-free interface.
-- **Event-Driven** — Monitors app switches via `NSWorkspace` notifications. No polling, no CPU waste.
-- **Privacy-First** — No network requests, no telemetry, no tracking. Everything runs locally on your Mac.
-- **Violation Alerts** — A floating panel appears briefly when a blocked app or URL is caught.
-- **Persistent Configuration** — All block lists, schedules, and settings survive app restarts.
+- **Menu bar countdown with a quick dropdown**: start, pause, skip and reset, durations, auto-start and strict mode, all without opening a window.
+- **Pomodoro cycle**: focus, short break, and a long break after N focus sessions. Pick a preset or type any value.
+- **Auto-start**: breaks and focus sessions can start on their own when the previous phase ends.
+- **Blocking only while focusing**: blocked apps are quit and tabs whose domain matches a keyword are closed. When a focus session starts, blocked apps and tabs that are already open are closed too.
+- **Strict mode**: while focusing there is no pause, skip, reset or quit, and blocked items can't be removed.
+- **Website categories and schedules** from AppJail still work.
 
-## Supported Browsers
+## How tab blocking works
 
-| Browser | App Block | Tab Block |
-|---------|-----------|-----------|
-| Safari | Yes | Yes |
-| Google Chrome | Yes | Yes |
-| Microsoft Edge | Yes | Yes |
-| Brave | Yes | Yes |
-| Arc | Yes | Yes |
-| Dia | Yes | Yes |
-| Vivaldi | Yes | Yes |
-| Opera | Yes | Yes |
-| Firefox | Yes | No (no AppleScript support) |
+- While a focus session runs and a supported browser is in front, PomoJail reads the active tab URL once per second through AppleScript. The script is compiled once and runs off the main thread. Measured on an Apple M5 with Chrome: about 2.3 ms of CPU per check, split between PomoJail and Chrome, so about 0.2% of one core. During breaks, or while another app is in front, nothing is checked.
+- Keywords match domains: `youtube` blocks `youtube.com` and `m.youtube.com`, but not a Google search for "youtube". Add a `/` to match a path, as in `reddit.com/r/funny`.
 
-## Installation
-
-### Download
-
-Download the latest `AppJail.dmg` from [Releases](https://github.com/devsemih/appjail/releases/latest), open it, and drag **AppJail** to your Applications folder.
-
-The app is signed and notarized by Apple — just download, install, and run.
-
-### Build from Source
+## Build
 
 ```bash
-git clone https://github.com/devsemih/appjail.git
-cd appjail
-xcodebuild -project appjail.xcodeproj -scheme appjail -configuration Release
+git clone https://github.com/PedroFK/pomojail.git
+cd pomojail
+xcodebuild -project PomoJail.xcodeproj -scheme PomoJail -configuration Release -derivedDataPath build
+cp -R build/Build/Products/Release/PomoJail.app /Applications/
 ```
 
-Requires **Xcode 16+** and **macOS 15.0+**.
+Requires Xcode 26+ and macOS 26+. The app is signed to run locally, so macOS asks for its permissions again after every rebuild.
 
 ## Permissions
 
-AppJail needs two permissions on first launch:
-
 | Permission | Why |
 |---|---|
-| **Accessibility** | To monitor which app is frontmost and terminate blocked apps |
-| **Automation** | To read browser URLs and close tabs via AppleScript |
-
-The onboarding screen guides you through granting both. You can manage them later in **System Settings > Privacy & Security**.
-
-## How It Works
-
-1. AppJail observes `NSWorkspace.didActivateApplicationNotification` to detect app switches.
-2. When a blocked app comes to the foreground, it calls `terminate()` on the process.
-3. When a browser activates and URL keywords exist, it reads the active tab URL via AppleScript and closes the tab if a keyword matches.
-
-No background polling. No network requests. Everything runs locally.
-
-## Why AppJail?
-
-Unlike browser extensions or network-level blockers, AppJail blocks both apps and browser tabs from a single native menu bar interface. Compared to tools like SelfControl, Cold Turkey, or Freedom — AppJail is lightweight, open source, and works across 8+ browsers without modifying network settings or requiring a subscription.
-
-## Architecture
-
-```
-Models/         Data models and persistence (BlockList, BlockSchedule, FocusTimerState, WebsiteCategory)
-Services/       Core logic (MonitoringEngine, FocusTimerManager, ScheduleManager, AppScanner, BrowserRegistry)
-Views/
-  Components/   Reusable UI components (StatusCard, QuickConfigCard, TimerRingView, etc.)
-  Sheets/       Modal sheets (SelectApps, SelectWebsites, WebsiteCategories, FocusTimer, Schedule)
-```
-
-## What's New in v1.1.0
-
-- Focus Timer with strict mode and preset durations
-- Scheduled blocking with weekday and time range support
-- Website category blocking (Social Media, Shopping, News, Entertainment, Gaming)
-- Redesigned dashboard with card-based layout and glass effect styling
-- Three monitoring triggers: manual, timer-based, and schedule-based
-- New reusable components (TimerRingView, StatusCard, QuickConfigCard, LetterAvatar)
+| Accessibility | Monitor the frontmost app and quit blocked apps |
+| Automation | Read and close browser tabs (asked once per browser) |
+| Notifications | Tell you when a phase ends |
 
 ## License
 
-MIT
+MIT. Original work © 2026 Semih Aslan.

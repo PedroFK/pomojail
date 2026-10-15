@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SelectAppsSheet: View {
     @ObservedObject var blockList: BlockList
+    var isLocked = false
     var onDismiss: () -> Void
     @State private var apps: [AppInfo] = []
     @State private var searchText = ""
@@ -71,7 +72,7 @@ struct SelectAppsSheet: View {
                         blockList.toggleBlock(app.id)
                     }
                 },
-                leadingDisabled: blockedApps.isEmpty,
+                leadingDisabled: blockedApps.isEmpty || isLocked,
                 leadingDestructive: true,
                 trailingTitle: "Select",
                 trailingAction: onDismiss
@@ -166,6 +167,7 @@ struct SelectAppsSheet: View {
                     .contentShape(Rectangle())
             }
             .buttonStyle(.plain)
+            .disabled(isBlocked && isLocked)
         }
     }
 }

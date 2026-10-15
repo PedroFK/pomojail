@@ -1,20 +1,19 @@
 import SwiftUI
 
 enum ActiveSheet {
-    case apps, websites, categories, timer, schedule
+    case apps, websites, categories, pomodoro, schedule
 }
 
 struct DashboardView: View {
     @ObservedObject var blockList: BlockList
     @ObservedObject var engine: MonitoringEngine
-    @ObservedObject var focusTimer: FocusTimerManager
+    @ObservedObject var pomodoro: PomodoroTimer
     @ObservedObject var scheduleManager: ScheduleManager
-
-    @State private var activeSheet: ActiveSheet?
+    @ObservedObject var router: WindowRouter
 
     var body: some View {
         Group {
-            if let sheet = activeSheet {
+            if let sheet = router.activeSheet {
                 sheetContent(sheet)
             } else {
                 mainDashboard
@@ -32,7 +31,7 @@ struct DashboardView: View {
                 VStack(spacing: 14) {
                     StatusCard(
                         engine: engine,
-                        focusTimer: focusTimer,
+                        pomodoro: pomodoro,
                         scheduleManager: scheduleManager
                     )
 
@@ -52,10 +51,10 @@ struct DashboardView: View {
 
     private var header: some View {
         HStack(spacing: 8) {
-            Image(systemName: "lock.shield.fill")
+            Image(systemName: "timer")
                 .foregroundStyle(.tint)
                 .font(.title3)
-            Text("AppJail")
+            Text("PomoJail")
                 .font(.headline)
             Spacer()
         }
@@ -70,21 +69,21 @@ struct DashboardView: View {
                     label: "Apps",
                     count: blockList.blockedAppBundleIDs.count
                 ) {
-                    activeSheet = .apps
+                    router.activeSheet = .apps
                 }
                 QuickConfigCard(
                     icon: "globe",
                     label: "Websites",
                     count: blockList.urlKeywords.count
                 ) {
-                    activeSheet = .websites
+                    router.activeSheet = .websites
                 }
                 QuickConfigCard(
                     icon: "folder.fill",
                     label: "Categories",
                     count: blockList.enabledCategoryIDs.count
                 ) {
-                    activeSheet = .categories
+                    router.activeSheet = .categories
                 }
             }
         }
@@ -92,20 +91,20 @@ struct DashboardView: View {
 
     private var timerSection: some View {
         Button {
-            activeSheet = .timer
+            router.activeSheet = .pomodoro
         } label: {
             HStack(spacing: 12) {
-                if focusTimer.isRunning || focusTimer.isPaused {
+                if pomodoro.isRunning || pomodoro.isPaused {
                     TimerRingView(
-                        progress: focusTimer.progress,
-                        label: focusTimer.formattedRemaining,
+                        progress: pomodoro.progress,
+                        label: pomodoro.formattedRemaining,
                         size: 40
                     )
                     VStack(alignment: .leading) {
-                        Text("Focus Timer")
+                        Text("Pomodoro")
                             .font(.subheadline)
                             .fontWeight(.medium)
-                        Text(focusTimer.isRunning ? "Running" : "Paused")
+                        Text("\(pomodoro.state.phase.title) · \(pomodoro.isRunning ? "Running" : "Paused")")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -115,10 +114,10 @@ struct DashboardView: View {
                         .foregroundStyle(.tint)
                         .frame(width: 40, height: 40)
                     VStack(alignment: .leading) {
-                        Text("Focus Timer")
+                        Text("Pomodoro")
                             .font(.subheadline)
                             .fontWeight(.medium)
-                        Text("Start a focus session")
+                        Text("\(pomodoro.settings.focusMinutes)/\(pomodoro.settings.shortBreakMinutes)/\(pomodoro.settings.longBreakMinutes) min · long break after \(pomodoro.settings.focusSessionsBeforeLongBreak)")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -137,7 +136,7 @@ struct DashboardView: View {
 
     private var scheduleSection: some View {
         Button {
-            activeSheet = .schedule
+            router.activeSheet = .schedule
         } label: {
             HStack(spacing: 12) {
                 Image(systemName: "calendar.badge.clock")
@@ -195,6 +194,7 @@ struct DashboardView: View {
             }
             .buttonStyle(.plain)
             .foregroundStyle(.red)
+            .disabled(pomodoro.isLocked)
         }
         .padding(.horizontal)
         .padding(.vertical, 8)
@@ -204,15 +204,15 @@ struct DashboardView: View {
     private func sheetContent(_ sheet: ActiveSheet) -> some View {
         switch sheet {
         case .apps:
-            SelectAppsSheet(blockList: blockList) { activeSheet = nil }
+            SelectAppsSheet(blockList: blockList, isLocked: pomodoro.isLocked) { router.activeSheet = nil }
         case .websites:
-            SelectWebsitesSheet(blockList: blockList) { activeSheet = nil }
+            SelectWebsitesSheet(blockList: blockList, isLocked: pomodoro.isLocked) { router.activeSheet = nil }
         case .categories:
-            WebsiteCategoriesSheet(blockList: blockList) { activeSheet = nil }
-        case .timer:
-            FocusTimerSheet(focusTimer: focusTimer) { activeSheet = nil }
+            WebsiteCategoriesSheet(blockList: blockList, isLocked: pomodoro.isLocked) { router.activeSheet = nil }
+        case .pomodoro:
+            PomodoroSheet(pomodoro: pomodoro) { router.activeSheet = nil }
         case .schedule:
-            ScheduleSheet(blockList: blockList) { activeSheet = nil }
+            ScheduleSheet(blockList: blockList) { router.activeSheet = nil }
         }
     }
 }

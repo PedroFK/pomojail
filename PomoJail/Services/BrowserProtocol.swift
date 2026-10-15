@@ -3,4 +3,5 @@ protocol BrowserProtocol: Sendable {
     var bundleIdentifier: String { get }
     nonisolated func getActiveURL() -> String?
     nonisolated func closeActiveTab() -> Bool
+    nonisolated func closeTabs(matching keywords: [String]) -> Int
 }

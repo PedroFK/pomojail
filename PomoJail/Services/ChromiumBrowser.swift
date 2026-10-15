@@ -28,4 +28,8 @@ struct ChromiumBrowser: BrowserProtocol {
             end tell
         """)
     }
+
+    nonisolated func closeTabs(matching keywords: [String]) -> Int {
+        AppleScriptRunner.closeTabs(in: appleScriptAppName) { BlockList.firstKeyword(in: $0, from: keywords) != nil }
+    }
 }

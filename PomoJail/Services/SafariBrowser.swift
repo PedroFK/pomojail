@@ -23,4 +23,8 @@ struct SafariBrowser: BrowserProtocol {
             end tell
         """)
     }
+
+    nonisolated func closeTabs(matching keywords: [String]) -> Int {
+        AppleScriptRunner.closeTabs(in: "Safari") { BlockList.firstKeyword(in: $0, from: keywords) != nil }
+    }
 }

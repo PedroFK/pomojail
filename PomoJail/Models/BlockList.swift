@@ -73,8 +73,28 @@ class BlockList: ObservableObject {
     }
 
     func urlMatchesKeywords(_ url: String) -> String? {
-        let lower = url.lowercased()
-        return effectiveKeywords.first { lower.contains($0) }
+        Self.firstKeyword(in: url, from: effectiveKeywords)
+    }
+
+    // Keywords match the domain, not the query string, so a Google search for "youtube" stays open.
+    // A keyword with a "/" (e.g. "reddit.com/r/funny") also matches against the path.
+    nonisolated static func firstKeyword(in url: String, from keywords: [String]) -> String? {
+        guard let components = URLComponents(string: url), let host = components.host?.lowercased() else { return nil }
+        let hostAndPath = host + components.path.lowercased()
+        return keywords.first { keyword in
+            keyword.contains("/") ? hostAndPath.contains(keyword) : domainLabel(of: host, startsWith: keyword)
+        }
+    }
+
+    nonisolated private static func domainLabel(of host: String, startsWith keyword: String) -> Bool {
+        var searchRange = host.startIndex..<host.endIndex
+        while let match = host.range(of: keyword, range: searchRange) {
+            if match.lowerBound == host.startIndex || host[host.index(before: match.lowerBound)] == "." {
+                return true
+            }
+            searchRange = host.index(after: match.lowerBound)..<host.endIndex
+        }
+        return false
     }
 
     func toggleCategory(_ categoryID: String) {

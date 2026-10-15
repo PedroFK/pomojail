@@ -2,7 +2,7 @@ import SwiftUI
 
 struct StatusCard: View {
     @ObservedObject var engine: MonitoringEngine
-    @ObservedObject var focusTimer: FocusTimerManager
+    @ObservedObject var pomodoro: PomodoroTimer
     @ObservedObject var scheduleManager: ScheduleManager
 
     var body: some View {
@@ -17,8 +17,8 @@ struct StatusCard: View {
                         .font(.headline)
                         .foregroundStyle(.primary)
 
-                    if focusTimer.isRunning {
-                        Text("Focus Timer - \(focusTimer.formattedRemaining)")
+                    if pomodoro.state.isFocusRunning {
+                        Text("Pomodoro Focus - \(pomodoro.formattedRemaining)")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     } else if let active = scheduleManager.activeSchedule {
@@ -45,11 +45,11 @@ struct StatusCard: View {
             if engine.isMonitoring {
                 Button("Unblock") {
                     engine.manuallyEnabled = false
-                    if focusTimer.isRunning { focusTimer.stop() }
+                    if pomodoro.state.isFocusRunning { pomodoro.pause() }
                 }
                 .buttonStyle(.bordered)
                 .controlSize(.small)
-                .disabled(focusTimer.state.strictMode && focusTimer.isRunning)
+                .disabled(pomodoro.isLocked)
             } else {
                 Button("Start Blocking") {
                     engine.manuallyEnabled = true

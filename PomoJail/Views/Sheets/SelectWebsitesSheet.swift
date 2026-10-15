@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SelectWebsitesSheet: View {
     @ObservedObject var blockList: BlockList
+    var isLocked = false
     var onDismiss: () -> Void
     @State private var newKeyword = ""
 
@@ -58,6 +59,7 @@ struct SelectWebsitesSheet: View {
                                             .contentShape(Rectangle())
                                     }
                                     .buttonStyle(.plain)
+                                    .disabled(isLocked)
                                 }
                                 .padding(.horizontal, 12)
                                 .padding(.vertical, 10)
@@ -81,7 +83,7 @@ struct SelectWebsitesSheet: View {
                         blockList.removeKeyword(keyword)
                     }
                 },
-                leadingDisabled: blockList.urlKeywords.isEmpty,
+                leadingDisabled: blockList.urlKeywords.isEmpty || isLocked,
                 leadingDestructive: true,
                 trailingTitle: "Done",
                 trailingAction: onDismiss
